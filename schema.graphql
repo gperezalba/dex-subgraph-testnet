@@ -1,0 +1,43 @@
+type Order @entity {
+  id: ID!
+  owner: User!
+  sellToken: Token!
+  buyToken: Token!
+  amount: BigInt!
+  price: BigInt!
+  side: BigInt
+  open: Boolean!
+  cancelled: Boolean!
+  dealed: Boolean!
+  deals: [Deal!]
+  timestamp: BigInt!
+  blockNumber: BigInt!
+}
+
+type Deal @entity {
+  id: ID!
+  tokenA: Token!
+  tokenB: Token!
+  orderA: Order!
+  orderB: Order!
+  amountA: BigInt!
+  amountB: BigInt!
+  price: BigInt!
+  side: BigInt!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+}
+
+type User @entity {
+  id: ID!
+  name: String
+  orders: [Order!]
+  deals: [Deal!]
+}
+
+type Token @entity {
+  id: ID! #token_address
+  tokenSymbol: String!
+  tokenName: String!
+  updated: Boolean!
+}
