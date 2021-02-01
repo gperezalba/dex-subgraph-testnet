@@ -23,10 +23,6 @@ dataSources:
         - name: Token
           file: ./abis/Token.json
       eventHandlers:
-        - event: NewCommission(uint256)
-          handler: handleNewCommission
-        - event: NewAddress(uint256,address,bool)
-          handler: handleNewAddress
         - event: NewToken(address)
           handler: handleNewToken
       file: ./src/controller.ts

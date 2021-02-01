@@ -4,7 +4,7 @@ import {
     Token
 } from "../generated/schema"
 
-import { Token as TokenContract } from "../generated/templates/Token/Token"
+import { Token as TokenContract, Transfer } from "../generated/templates/Token/Token"
 import { Token as TokenTemplate } from "../generated/templates"
 
 const PI_ADDRESS = "0x0000000000000000000000000000000000000000";
@@ -45,9 +45,11 @@ export function createToken(tokenAddress: Address): void {
             token.tokenName = "PI";
             token.updated = true;
         }
-
-        TokenTemplate.create(tokenAddress);
     }
   
     token.save();
+}
+
+export function handleTransfer(event: Transfer): void {
+    
 }
