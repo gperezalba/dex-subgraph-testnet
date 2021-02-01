@@ -1,6 +1,6 @@
 import { BigInt } from "@graphprotocol/graph-ts";
 import { CancelOrder, Deal, SetOrder, UpdateOrder } from "../generated/DEX/DEX";
-import { Order, Deal as DealEntity } from "../generated/schema";
+import { Order, Deal as DealEntity, Cancelation } from "../generated/schema";
 import { pushUserDeal, pushUserOrder } from "./user";
 
 export function handleSetOrder(event: SetOrder): void {
@@ -50,6 +50,17 @@ export function handleCancelOrder(event: CancelOrder): void {
         order.cancelled = true;
 
         order.save();
+
+        let cancelation = Cancelation.load(order.id);
+
+        if (cancelation == null) {
+            cancelation = new Cancelation(order.id);
+            cancelation.order = order.id;
+            cancelation.timestamp = event.block.timestamp;
+            cancelation.blockNumber = event.block.number;
+
+            cancelation.save();
+        }
     }
 }
 

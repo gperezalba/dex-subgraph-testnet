@@ -28,6 +28,13 @@ type Deal @entity {
   blockNumber: BigInt!
 }
 
+type Cancelation @entity {
+  id: ID!
+  order: Order!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+}
+
 type User @entity {
   id: ID!
   name: String
