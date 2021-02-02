@@ -12,8 +12,10 @@ export function handleSetOrder(event: SetOrder): void {
         order.owner = event.params.owner.toHexString();
         order.sellToken = event.params.selling.toHexString();
         order.buyToken = event.params.buying.toHexString();
-        order.amount = event.params.amount;
-        order.price = event.params.price;
+        let settings = event.params.settings;
+        order.amount = settings[0];
+        order.price = settings[1];
+        order.side = settings[2];
         order.open = true;
         order.cancelled = false;
         order.dealed = false;

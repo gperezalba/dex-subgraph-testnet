@@ -51,7 +51,7 @@ dataSources:
     name: DEX
     network: mainnet
     source:
-      address: "0x7A9A9f9899a81d5d968937596bB798a7Ea55cF13"
+      address: "0xB9b5A1819907cDD70A58764fBad3232EEACE1D0E"
       abi: DEX
     mapping:
       kind: ethereum/events
@@ -67,7 +67,7 @@ dataSources:
           handler: handleCancelOrder
         - event: Deal(indexed bytes32,bytes32,bytes32,uint256,uint256,uint256)
           handler: handleDeal
-        - event: SetOrder(indexed address,indexed address,indexed address,uint256,uint256,bytes32)
+        - event: SetOrder(indexed address,indexed address,indexed address,uint256[3],bytes32)
           handler: handleSetOrder
         - event: UpdateOrder(indexed bytes32,uint256)
           handler: handleUpdateOrder

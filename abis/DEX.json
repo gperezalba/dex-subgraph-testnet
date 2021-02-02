@@ -191,13 +191,8 @@
       },
       {
         "indexed": false,
-        "name": "amount",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "name": "price",
-        "type": "uint256"
+        "name": "settings",
+        "type": "uint256[3]"
       },
       {
         "indexed": false,
@@ -355,33 +350,6 @@
     "type": "function"
   },
   {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "_orderId",
-        "type": "bytes32"
-      }
-    ],
-    "name": "getDeals",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bytes32[]"
-      },
-      {
-        "name": "",
-        "type": "bytes32[]"
-      },
-      {
-        "name": "",
-        "type": "uint256[]"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "constant": false,
     "inputs": [
       {
@@ -397,7 +365,7 @@
         "type": "uint256"
       },
       {
-        "name": "_prie",
+        "name": "_price",
         "type": "uint256"
       },
       {
