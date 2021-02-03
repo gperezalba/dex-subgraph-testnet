@@ -1,6 +1,6 @@
 import { BigInt } from "@graphprotocol/graph-ts";
-import { CancelOrder, Deal, SetOrder, UpdateOrder } from "../generated/DEX/DEX";
-import { Order, Deal as DealEntity, Cancelation } from "../generated/schema";
+import { SetOrder, UpdateOrder, CancelOrder, Deal } from "../generated/DEXPackable/DEXPackable";
+import { Cancelation, Order, Deal as DealEntity } from "../generated/schema";
 import { pushUserDeal, pushUserOrder } from "./user";
 
 export function handleSetOrder(event: SetOrder): void {
@@ -12,7 +12,8 @@ export function handleSetOrder(event: SetOrder): void {
         order.owner = event.params.owner.toHexString();
         order.sellToken = event.params.selling.toHexString();
         order.buyToken = event.params.buying.toHexString();
-        order.isPackable = false;
+        order.packableId = event.params.packableId.toHexString();
+        order.isPackable = true;
         let settings = event.params.settings;
         order.amount = settings[0];
         order.price = settings[1];

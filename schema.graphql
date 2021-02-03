@@ -3,6 +3,8 @@ type Order @entity {
   owner: User!
   sellToken: Token!
   buyToken: Token!
+  packableId: PackableId
+  isPackable: Boolean!
   amount: BigInt!
   price: BigInt!
   side: BigInt
@@ -47,4 +49,18 @@ type Token @entity {
   tokenSymbol: String!
   tokenName: String!
   updated: Boolean!
+}
+
+type Packable @entity {
+    id: ID! #tokenAddress
+    token: Token!
+    tokenKind: BigInt!
+    ids: [PackableId!]
+}
+
+type PackableId @entity {
+    id: ID! #tokenAddress + tokenKind (hacerlo tokenAddress-wallet para usar el start_with?)
+    packable: Packable! 
+    tokenId: String!
+    metadata: [BigInt!]
 }
