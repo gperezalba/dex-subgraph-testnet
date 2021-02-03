@@ -83,7 +83,7 @@ export function handleDeal(event: Deal): void {
         deal.amountA = event.params.amountA;
         deal.amountB = event.params.amountB;
         deal.side = event.params.side;
-        deal.price = BigInt.fromI32(0);
+        deal.price = orderB.price;
         deal.timestamp = event.block.timestamp;
         deal.blockNumber = event.block.number;
 
