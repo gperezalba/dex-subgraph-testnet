@@ -78,7 +78,7 @@ dataSources:
     name: DEXPackable
     network: mainnet
     source:
-      address: "0x2691a07453c275B66EdBac04421A0aB51094c95D"
+      address: "0x638BD47434E1bd28e2fB7F5046cd94e2f3CB38d1"
       abi: DEXPackable
     mapping:
       kind: ethereum/events
@@ -92,7 +92,7 @@ dataSources:
       eventHandlers:
         - event: CancelOrder(indexed address,indexed address,indexed address,uint256,uint256,bytes32)
           handler: handleCancelOrder
-        - event: Deal(indexed bytes32,bytes32,bytes32,uint256,uint256,uint256)
+        - event: Deal(indexed bytes32,indexed bytes32,uint256,uint256,uint256)
           handler: handleDeal
         - event: SetOrder(indexed address,indexed address,indexed address,uint256[3],bytes32,bytes32)
           handler: handleSetOrder

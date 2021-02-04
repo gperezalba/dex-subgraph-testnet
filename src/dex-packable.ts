@@ -69,10 +69,11 @@ export function handleCancelOrder(event: CancelOrder): void {
 }
 
 export function handleDeal(event: Deal): void {
-    let deal = DealEntity.load(event.params.id.toHexString());
+    let dealId = event.transaction.hash.toHexString().concat(event.transactionLogIndex.toString());
+    let deal = DealEntity.load(dealId);
 
     if (deal == null) {
-        deal = new DealEntity(event.params.id.toHexString());
+        deal = new DealEntity(dealId);
 
         let orderA = Order.load(event.params.orderA.toHexString());
         let orderB = Order.load(event.params.orderB.toHexString());
