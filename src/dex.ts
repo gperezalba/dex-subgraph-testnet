@@ -14,6 +14,7 @@ export function handleSetOrder(event: SetOrder): void {
         order.buyToken = event.params.buying.toHexString();
         order.isPackable = false;
         let settings = event.params.settings;
+        order.initialAmount = settings[0];
         order.amount = settings[0];
         order.price = settings[1];
         order.side = settings[2];
@@ -68,10 +69,11 @@ export function handleCancelOrder(event: CancelOrder): void {
 }
 
 export function handleDeal(event: Deal): void {
-    let deal = DealEntity.load(event.params.id.toHexString());
+    let dealId = event.transaction.hash.toHexString().concat(event.transactionLogIndex.toString());
+    let deal = DealEntity.load(dealId);
 
     if (deal == null) {
-        deal = new DealEntity(event.params.id.toHexString());
+        deal = new DealEntity(dealId);
 
         let orderA = Order.load(event.params.orderA.toHexString());
         let orderB = Order.load(event.params.orderB.toHexString());

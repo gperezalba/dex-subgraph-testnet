@@ -5,6 +5,7 @@ type Order @entity {
   buyToken: Token!
   packableId: PackableId
   isPackable: Boolean!
+  initialAmount: BigInt!
   amount: BigInt!
   price: BigInt!
   side: BigInt

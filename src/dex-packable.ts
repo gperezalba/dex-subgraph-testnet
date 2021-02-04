@@ -15,6 +15,7 @@ export function handleSetOrder(event: SetOrder): void {
         order.packableId = event.params.packableId.toHexString();
         order.isPackable = true;
         let settings = event.params.settings;
+        order.initialAmount = settings[0];
         order.amount = settings[0];
         order.price = settings[1];
         order.side = settings[2];

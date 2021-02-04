@@ -245,16 +245,11 @@
     "inputs": [
       {
         "indexed": true,
-        "name": "id",
-        "type": "bytes32"
-      },
-      {
-        "indexed": false,
         "name": "orderA",
         "type": "bytes32"
       },
       {
-        "indexed": false,
+        "indexed": true,
         "name": "orderB",
         "type": "bytes32"
       },
@@ -339,12 +334,7 @@
       }
     ],
     "name": "dealOrder",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bytes32"
-      }
-    ],
+    "outputs": [],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
