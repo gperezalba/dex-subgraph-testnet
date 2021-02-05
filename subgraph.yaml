@@ -53,7 +53,7 @@ dataSources:
     name: DEX
     network: mainnet
     source:
-      address: "0xF1976F8287C17c44a4C7Da641c5941a92A1c835c"
+      address: "0x2edDB534493A984F38eF7CEaE531a3456c00944c"
       abi: DEX
     mapping:
       kind: ethereum/events
@@ -78,7 +78,7 @@ dataSources:
     name: DEXPackable
     network: mainnet
     source:
-      address: "0xAa765225A5BAA2A5dB5B087e9ef041dA383962C1"
+      address: "0x16541BC2DB0D869e42e643A4726ee9e7a22dF769"
       abi: DEXPackable
     mapping:
       kind: ethereum/events
