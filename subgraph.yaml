@@ -78,7 +78,7 @@ dataSources:
     name: DEXPackable
     network: mainnet
     source:
-      address: "0x9Fc80b9cb99D74a4F77328ce1f3cFf8Ff7B0f984"
+      address: "0x502d1DA75C4b7488A2B1dC65ED7a200Ecdf53a2A"
       abi: DEXPackable
     mapping:
       kind: ethereum/events
