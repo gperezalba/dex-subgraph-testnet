@@ -53,7 +53,7 @@ dataSources:
     name: DEX
     network: mainnet
     source:
-      address: "0xe4a915DA7923dE56ddC1Fe57261d96467525ce13"
+      address: "0xc707367c769e9171060e82A617b524A4891b936a"
       abi: DEX
     mapping:
       kind: ethereum/events
