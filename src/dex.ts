@@ -9,6 +9,7 @@ export function handleSetOrder(event: SetOrder): void {
     if (order == null) {
         order = new Order(event.params.id.toHexString());
 
+        order.orderId = event.params.id.toHexString();
         order.owner = event.params.owner.toHexString();
         order.sellToken = event.params.selling.toHexString();
         order.buyToken = event.params.buying.toHexString();
@@ -78,6 +79,7 @@ export function handleDeal(event: Deal): void {
         let orderA = Order.load(event.params.orderA.toHexString());
         let orderB = Order.load(event.params.orderB.toHexString());
 
+        deal.dealId = dealId;
         deal.orderA = orderA.id;
         deal.orderB = orderB.id;
         deal.tokenA = orderA.sellToken;

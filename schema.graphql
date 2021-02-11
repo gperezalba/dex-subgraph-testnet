@@ -1,5 +1,6 @@
 type Order @entity {
   id: ID!
+  orderId: String!
   owner: User!
   sellToken: Token!
   buyToken: Token!
@@ -19,6 +20,7 @@ type Order @entity {
 
 type Deal @entity {
   id: ID!
+  dealId: String!
   tokenA: Token!
   tokenB: Token!
   orderA: Order!
