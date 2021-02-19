@@ -1,6 +1,6 @@
-import { BigInt } from "@graphprotocol/graph-ts";
-import { SetOrder, UpdateOrder, CancelOrder, Deal } from "../generated/DEXPackable/DEXPackable";
-import { Cancelation, Order, Deal as DealEntity } from "../generated/schema";
+import { Address, BigInt } from "@graphprotocol/graph-ts";
+import { SetOrder, UpdateOrder, CancelOrder, Deal, NewCommission } from "../generated/DEXPackable/DEXPackable";
+import { Cancelation, Order, Deal as DealEntity, Commissions } from "../generated/schema";
 import { pushUserDeal, pushUserOrder } from "./user";
 
 export function handleSetOrder(event: SetOrder): void {
@@ -111,4 +111,16 @@ export function handleDeal(event: Deal): void {
         pushUserDeal(deal as DealEntity, orderA.owner);
         pushUserDeal(deal as DealEntity, orderB.owner);
     }
+}
+
+export function handleNewCommission(event: NewCommission): void {
+    let commission = Commissions.load(Address.fromI32(0).toHexString());
+
+    if (commission == null) {
+        commission = new Commissions(Address.fromI32(0).toHexString());
+    }
+
+    commission.dexPackable = event.params.newCommission;
+
+    commission.save();
 }
