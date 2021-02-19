@@ -117,6 +117,7 @@ export function handleNewCommission(event: NewCommission): void {
 
     if (commission == null) {
         commission = new Commissions(Address.fromI32(0).toHexString());
+        commission.dexPackable = BigInt.fromI32(0);
     }
 
     commission.dex = event.params.newCommission;
