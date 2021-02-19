@@ -1,4 +1,4 @@
-type Commissions @entity {
+type Commission @entity {
   id: ID!
   dex: BigInt!
   dexPackable: BigInt!
